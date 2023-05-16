@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         setObservers()
     }
 
-    fun setObservers() {
+    private fun setObservers() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 launch {
@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun setAdapter() {
+    private fun setAdapter() {
         beerAdapter = BeerListAdapter()
         binding.beerRecyclerView.apply {
             adapter = beerAdapter
