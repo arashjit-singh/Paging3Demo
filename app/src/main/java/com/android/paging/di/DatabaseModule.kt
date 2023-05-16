@@ -2,7 +2,6 @@ package com.android.paging.di
 
 import android.content.Context
 import androidx.room.Room
-import androidx.room.RoomDatabase
 import com.android.paging.data.local.BeerDatabase
 import com.android.paging.utilities.Constants
 import dagger.Module
@@ -18,7 +17,7 @@ object DatabaseModule {
 
     @Provides
     @Singleton
-    fun provideBeerDatabase(@ApplicationContext context: Context): RoomDatabase {
+    fun provideBeerDatabase(@ApplicationContext context: Context): BeerDatabase {
         return Room.databaseBuilder(
             context,
             BeerDatabase::class.java,

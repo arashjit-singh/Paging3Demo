@@ -27,7 +27,7 @@ class RepositoryModule {
                 pageSize = Constants.PAGE_SIZE
             ),
             remoteMediator = BeerMediator(
-                api = api,
+                beerApi = api,
                 beerDatabase = beerDb
             ),
             pagingSourceFactory = {

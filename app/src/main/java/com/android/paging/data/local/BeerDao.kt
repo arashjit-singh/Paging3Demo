@@ -19,6 +19,7 @@ interface BeerDao {
     @Query("SELECT * from BeerTable")
     suspend fun getAllBeers(): List<BeerEntity>
 
+    @Query("SELECT * from BeerTable")
     fun getPagingSource(): PagingSource<Int, BeerEntity>
 
 }
