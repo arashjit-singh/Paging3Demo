@@ -1,6 +1,7 @@
 package com.android.paging.ui
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -44,6 +45,20 @@ class MainActivity : AppCompatActivity() {
                         // Show loading spinner during initial load or refresh.
                         binding.progressBar.isVisible =
                             loadState.mediator?.refresh is LoadState.Loading
+
+                        val errorState = loadState.source.append as? LoadState.Error
+                            ?: loadState.source.prepend as? LoadState.Error
+                            ?: loadState.append as? LoadState.Error
+                            ?: loadState.prepend as? LoadState.Error
+                            ?: loadState.refresh as? LoadState.Error
+
+                        errorState?.let {
+                            Toast.makeText(
+                                this@MainActivity,
+                                "\uD83D\uDE28 Wooops ${it.error}",
+                                Toast.LENGTH_LONG
+                            ).show()
+                        }
 
                     }
                 }
